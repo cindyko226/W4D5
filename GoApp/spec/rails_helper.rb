@@ -31,6 +31,8 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  
+  config.include ShowMeTheCookies, :type => :feature
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|

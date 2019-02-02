@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <header> 
+      <% if current_user %>
+      <%= current_user.username %>
+      <% else %>
+      <a href= "<%=new_session_url%>"> Log In </a>
+      <% end %>
+    
+
+    </header>
     <%= yield %>
   </body>
 </html>

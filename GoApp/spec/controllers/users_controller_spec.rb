@@ -11,8 +11,9 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'POST #create' do 
     context 'with valid params' do 
+      
       before(:each) do 
-        user = User.create(username:'Cindy', password: 'password')
+        user = User.new(username:'Cindy', password: 'password')
         post :create, params: {user: {username: user.username, password: user.password } }
       end
       it 'log in the user' do 
@@ -20,7 +21,7 @@ RSpec.describe UsersController, type: :controller do
       end 
 
       it 'redirect user' do 
-        expect(response).to redirect_to user_url(User.last)
+        expect(response).to redirect_to new_user_url
       end
     end
 
